@@ -71,7 +71,8 @@ void Board::addToCoords(int id) {
 void Board::remove(int id) {
     for (const auto& shape : shapes) {
         if (get<int>(shape[0]) == id) {
-            shapes.erase(shapes.begin() + id);
+            int idx = &shape - &shapes[0];
+            shapes.erase(shapes.begin() + idx);
         }
     }
 }
